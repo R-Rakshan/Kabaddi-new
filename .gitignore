@@ -1,0 +1,9 @@
+﻿backend/output/
+backend/input/
+*.mp4
+*.avi
+*.pt
+*.db
+*.log
+__pycache__/
+node_modules/

@@ -1,0 +1,14 @@
+Starting test run on input/23066f49-e4fe-4b21-b2df-db1493cdf6af_Kabaddi_video.mp4...
+Frame 10/877
+Frame 20/877
+Frame 30/877
+Frame 40/877
+[ReID] track 21 ΓåÆ inheriting T2#7 (was 11, dist=105.8px)
+Frame 50/877
+[ReID] track 24 ΓåÆ inheriting T2#7 (was 11, dist=19.1px)
+Frame 60/877
+[ReID] track 27 ΓåÆ inheriting T2#7 (was 11, dist=69.8px)
+Frame 70/877
+Finished 75 frames! Breaking to check outputs.
+Success! Finished in 119.35 seconds.
+Output saved to output/test_output.mp4

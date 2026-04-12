@@ -1,0 +1,532 @@
+/* ── Layout ───────────────────────────────────────────────────────────────── */
+
+.root {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────────── */
+
+.sidebar {
+    width: 300px;
+    min-width: 300px;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+    padding: 20px 16px 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.logoIcon {
+    font-size: 28px;
+    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.6));
+}
+
+.logoTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.logoSub {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* ── Drop zone ─────────────────────────────────────────────────────────────── */
+
+.dropzone {
+    border: 1.5px dashed var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 20px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--bg-card);
+    margin-bottom: 20px;
+}
+
+.dropzone:hover,
+.dropzoneActive {
+    border-color: var(--accent);
+    background: rgba(124, 58, 237, 0.08);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+}
+
+.dropIcon {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.dropLabel {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.dropSub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.uploadSpinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid var(--border-strong);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    margin: 8px auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Job list ──────────────────────────────────────────────────────────────── */
+
+.sidebarSection {
+    flex: 1;
+}
+
+.sidebarHeading {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.jobCard {
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: var(--bg-card);
+    transition: all 0.15s;
+}
+
+.jobCard:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border);
+}
+
+.jobCardActive {
+    border-color: var(--accent) !important;
+    background: rgba(124, 58, 237, 0.1) !important;
+}
+
+.jobCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.jobName {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.jobMeta {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* ── Badges ────────────────────────────────────────────────────────────────── */
+
+.badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.badgeQueued {
+    background: rgba(100, 100, 120, 0.25);
+    color: #8b93a8;
+}
+
+.badgeProcessing {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+}
+
+.badgeDone {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.badgeError {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+/* ── Progress bar ──────────────────────────────────────────────────────────── */
+
+.progressTrack {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #a855f7);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+/* ── Error banner ──────────────────────────────────────────────────────────── */
+
+.errorBanner {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #f87171;
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 14px;
+}
+
+.empty {
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 8px 0;
+}
+
+/* ── Main ──────────────────────────────────────────────────────────────────── */
+
+.main {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--bg-base);
+    padding: 32px 36px;
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────────────── */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    min-height: 60vh;
+    position: relative;
+}
+
+.heroGlow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.heroIcon {
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+.heroTitle {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #f1f3f7 0%, #8b93a8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 14px;
+}
+
+.heroSub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.heroPills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: rgba(124, 58, 237, 0.12);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    color: #a78bfa;
+}
+
+/* ── Detail view ───────────────────────────────────────────────────────────── */
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.detailHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.detailTitle {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: var(--text-primary);
+}
+
+.detailMeta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.detailActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btnPrimary {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s;
+}
+
+.btnPrimary:hover {
+    opacity: 0.85;
+}
+
+.btnDanger {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.btnDanger:hover {
+    background: rgba(239, 68, 68, 0.22);
+}
+
+/* ── Progress section ─────────────────────────────────────────────────────── */
+
+.progressSection {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+}
+
+.progressLabel {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+/* ── Stats ─────────────────────────────────────────────────────────────────── */
+
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.statCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    text-align: center;
+}
+
+.statValue {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -1px;
+}
+
+.statLabel {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-top: 4px;
+}
+
+/* ── Teams ─────────────────────────────────────────────────────────────────── */
+
+.teamsRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.teamPanel {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.teamPanelRed {
+    border-color: rgba(232, 69, 69, 0.2);
+}
+
+.teamPanelBlue {
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.teamHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+}
+
+.teamDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.teamDotRed {
+    background: var(--team1);
+    box-shadow: 0 0 8px var(--team1);
+}
+
+.teamDotBlue {
+    background: var(--team2);
+    box-shadow: 0 0 8px var(--team2);
+}
+
+.rosterGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 8px;
+}
+
+.playerChip {
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.playerChipRed {
+    background: var(--team1-dim);
+    border: 1px solid rgba(232, 69, 69, 0.25);
+}
+
+.playerChipBlue {
+    background: var(--team2-dim);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.chipId {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-primary);
+}
+
+.chipTrack {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+/* ── Error box ─────────────────────────────────────────────────────────────── */
+
+.errorBox {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    padding: 18px 20px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+    .root {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: unset;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .statsRow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .teamsRow {
+        grid-template-columns: 1fr;
+    }
+}
