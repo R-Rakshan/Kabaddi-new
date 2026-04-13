@@ -112,7 +112,7 @@ export default function Home() {
       }
       await fetchJobs();
     } catch (e) {
-      setError("Cannot reach backend. Is it running on port 8000?");
+      setError("Cannot reach backend. Is it running on port 8001?");
     } finally {
       setUploading(false);
     }
